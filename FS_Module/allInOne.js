@@ -25,11 +25,11 @@ try {
     console.log("File content is this");
     console.log(readfile(sFilePath));           //call the read function
     console.log('write to file ', sFilePath);
-    // writeFile(sFilePath, sContent);             //call the write function
+    writeFile(sFilePath, sContent);             //call the write function
     console.log('file content after write');
     console.log(readfile(sFilePath));           //call the read function
     console.log('appending content to the file');
-    // appending(sFilePath, sAppendContent);       //call the append function 
+    appending(sFilePath, sAppendContent);       //call the append function 
     console.log(readfile(sFilePath));           //call the read function
     console.log('change file permission to read only');
     chmod(sFilePath);
