@@ -1,0 +1,15 @@
+An environment is a set of variables you can use in your Postman requests.
+You can use environments to group related sets of values together and manage
+access to shared Postman data if you are working as part of a team.
+
+
+An environment in Postman is a set of key-value pairs. An environment helps
+us to differentiate between the requests. When we create an environment inside
+Postman, we can change the value of the key value pairs and the changes are 
+reflected in our requests. An environment just provides boundaries to variables.
+
+
+When we create different environment we can make track of all the variables and how 
+to use them inside our requests. There can be many variables inside one environment. 
+At once, we can work only in one environment although we can create any number of 
+environments in Postman
