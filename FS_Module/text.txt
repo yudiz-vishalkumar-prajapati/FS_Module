@@ -1,0 +1,1 @@
+Environment variables provide information about the environment in which the process is running
