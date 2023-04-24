@@ -41,10 +41,14 @@ const server = http.createServer((req, res) => {
       else return res.end('id is not found');
     }
     function fAdd(id, sProduct, nPrise) {
-      database.push({ id, sProduct, nPrise });
-      fs.writeFileSync("database.json", JSON.stringify(parsed))
-      res.write("product is added to database")
-      return res.end(`id:${id} ,Product:${sProduct} ,Prise:${nPrise}`);
+      const index = database.findIndex(object => object.id === id);
+      if (index === -1) {
+        database.push({ id, sProduct, nPrise });
+        fs.writeFileSync("database.json", JSON.stringify(parsed))
+        res.write("product is added to database\n");
+        return res.end(`id:${id} ,Product:${sProduct} ,Prise:${nPrise}`);
+      }
+     else return res.end("this id is already exist");
     }
     const { id, sProduct, nPrise } = JSON.parse(data);
     switch (req.url) {
@@ -61,11 +65,11 @@ const server = http.createServer((req, res) => {
         eventEmitter.emit("get");
         break;
       default:
-        res.write("you are in home page");
-        res.write("use /add for add product");
-        res.write("use /update for update product");
-        res.write("use /delete for delete product");
-        return res.end("use /get for get all product");
+        res.write("you are in home page\n");
+        res.write("use /add for add product\n");
+        res.write("use /update for update product\n");
+        res.write("use /delete for delete product\n");
+        return res.end("use /get for get all product\n");
         break;
     }
   });
