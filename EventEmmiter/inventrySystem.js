@@ -43,6 +43,7 @@ const server = http.createServer((req, res) => {
     function fAdd(id, sProduct, nPrise) {
       database.push({ id, sProduct, nPrise });
       fs.writeFileSync("database.json", JSON.stringify(parsed))
+      res.write("product is added to database")
       return res.end(`id:${id} ,Product:${sProduct} ,Prise:${nPrise}`);
     }
     const { id, sProduct, nPrise } = JSON.parse(data);
@@ -61,9 +62,12 @@ const server = http.createServer((req, res) => {
         break;
       default:
         res.write("you are in home page");
+        res.write("use /add for add product");
+        res.write("use /update for update product");
+        res.write("use /delete for delete product");
+        return res.end("use /get for get all product");
         break;
     }
-
   });
 });
 
